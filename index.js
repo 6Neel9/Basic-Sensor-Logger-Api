@@ -25,7 +25,7 @@ app.post('/', async (req, res) => {
     const csvData = Papa.unparse(data, { newline: '\n' });
     fs.writeFileSync('./public/data.csv', csvData);
 
-    res.status(200).json('cool')
+    res.status(200).json(data)
 
 
 })
