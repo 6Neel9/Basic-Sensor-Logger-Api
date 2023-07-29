@@ -16,8 +16,10 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     // const csvData = Papa.unparse(jsonData, { newline: '\n' });
-    // fs.writeFileSync('./data.csv',csvData)
-    res.json('ok')
+    // fs.writeFileSync('./data.csv',csvData);
+    // Read the data from the CSV file
+    const csvData = fs.readFileSync('/data.csv', 'utf8');
+    res.json(csvData)
 });
 
 app.use('/csv-files', express.static('public'));
